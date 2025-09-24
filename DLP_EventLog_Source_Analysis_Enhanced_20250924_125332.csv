@@ -1,0 +1,4 @@
+﻿"Source","Description","Total_Events","Critical_Events","Error_Events","Warning_Events","Info_Events","Service_Restarts","Policy_Sync_Issues","Agent_Health_Issues","Detailed_System_Errors","Detailed_Sense_Errors","Health_Communication_Issues","Policy_Sync_Success_Rate"
+"Microsoft-Windows-Defender","Windows Defender","1765","0","0","5","1760","0","0","0","0","0","0","36.76"
+"System","System Events","372","7","100","0","272","0","0","15","100","0","0","36.76"
+"Microsoft-Windows-Sense","Microsoft Defender for Endpoint","2054","0","31","1","2022","0","0","0","0","31","0","36.76"

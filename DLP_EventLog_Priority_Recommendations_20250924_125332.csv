@@ -1,0 +1,2 @@
+﻿"Priority","Category","Event_ID","Issue","Business_Impact","Actions","Priority_Description"
+"1","Sense Service","101","Network Detection & Response Startup Failure","Minor - NDR retries automatically, DLP functionality continues","Check system resource utilization during startup; Verify service dependencies are running; Consider delaying NDR startup after system boot; Review system event logs for related hardware issues","Critical/High Severity"

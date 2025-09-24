@@ -1,0 +1,2 @@
+﻿"Timestamp","Monitoring_Mode","Components_Executed","Policy_Coverage_Checked","Performance_Impact_Measured","Latency_Impact_Measured","Network_Impact_Measured","User_Experience_Measured","Event_Logs_Analysed","Overall_Health_Status","Success_Rate","Recommendations"
+"9/24/2025 12:53:32 PM","Policy","1","False","False","False","False","False","True","Healthy","100%","All components executed successfully"

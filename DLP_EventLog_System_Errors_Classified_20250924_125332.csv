@@ -1,0 +1,179 @@
+﻿"TimeCreated","EventID","Level","Source","Message","ProcessId","ThreadId","Keywords","IsDLPRelevant","DLPCategory","ClassificationReason"
+"9/24/2025 10:59:45 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","46460","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/24/2025 10:59:45 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","46460","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/24/2025 10:54:21 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","66952","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/24/2025 10:54:21 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","66952","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/24/2025 10:53:34 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","34376","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/24/2025 10:53:34 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","34376","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/24/2025 10:37:11 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","72696","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/24/2025 10:37:11 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","72696","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/23/2025 8:48:38 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","948","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/23/2025 8:47:50 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","32112","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/23/2025 8:47:50 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","32112","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/23/2025 8:33:13 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","948","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/23/2025 8:33:13 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","948","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:26:35 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","2384","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:26:34 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","12444","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:26:34 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","12444","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:25:48 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","2384","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:25:48 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1660","11856","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:24:52 PM","7023","Error","Service Control Manager","The SysMain service terminated with the following error: 
+The parameter is incorrect.","1660","11036","Classic","False","SystemMaintenance","Non-DLP service: SysMain"
+"9/22/2025 1:23:15 PM","7043","Error","Service Control Manager","The Windows Defender Advanced Threat Protection Service service did not shut down properly after receiving a preshutdown control.","1668","2228","Classic","True","DLPService","DLP service: Windows Defender Advanced Threat Protection Service"
+"9/22/2025 1:20:30 PM","7031","Error","Service Control Manager","The Shell Hardware Detection service terminated unexpectedly.  It has done this 1 time(s).  The following corrective action will be taken in 60000 milliseconds: Restart the service.","1668","2228","Classic","False","SystemMaintenance","Non-DLP service: Shell Hardware Detection"
+"9/22/2025 1:12:54 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1668","26988","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:12:52 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1668","11260","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:11:54 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1668","11816","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:11:54 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1668","11816","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:11:52 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1668","11816","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:11:52 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1668","11916","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:11:48 PM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1668","11260","Classic","False","SystemGeneral","No DLP indicators found"
+"9/22/2025 1:10:54 PM","7031","Error","Service Control Manager","The Dell Trusted Device service terminated unexpectedly.  It has done this 1 time(s).  The following corrective action will be taken in 120000 milliseconds: Restart the service.","1668","11916","Classic","False","SystemMaintenance","Non-DLP service: Dell Trusted Device"
+"9/22/2025 1:10:53 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1668","11916","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 1:10:45 PM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1668","11808","Classic","False","SystemGeneral","No DLP indicators found"
+"9/22/2025 1:08:36 PM","7023","Error","Service Control Manager","The UsoSvc service terminated with the following error: 
+%%2149884192","1668","2212","Classic","False","SystemGeneral","No DLP indicators found"
+"9/22/2025 1:04:31 PM","7043","Error","Service Control Manager","The Windows Defender Advanced Threat Protection Service service did not shut down properly after receiving a preshutdown control.","1476","6444","Classic","True","DLPService","DLP service: Windows Defender Advanced Threat Protection Service"
+"9/22/2025 1:04:15 PM","7043","Error","Service Control Manager","The Windows Security Service service did not shut down properly after receiving a preshutdown control.","1476","6444","Classic","False","SystemGeneral","No DLP indicators found"
+"9/22/2025 8:43:56 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","49968","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/22/2025 8:43:56 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","49968","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 6:23:20 PM","7011","Error","Service Control Manager","A timeout (30000 milliseconds) was reached while waiting for a transaction response from the lmhosts service.","1476","49968","Classic","False","SystemMaintenance","Non-DLP service: lmhosts"
+"9/19/2025 4:46:30 PM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1476","25524","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 4:45:51 PM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1476","25524","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 12:00:28 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","17896","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 12:00:28 PM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","17896","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:37:28 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","11568","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:37:28 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","11568","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:37:27 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","9524","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:36:32 AM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1476","9524","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 9:36:20 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","11568","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:36:20 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","9524","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:28:19 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","7060","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:28:19 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","7060","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:28:17 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","7060","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:28:17 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","6872","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 9:27:02 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","15272","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:45:32 AM","7034","Error","Service Control Manager","The Dell Trusted Device service terminated unexpectedly.  It has done this 3 time(s).","1476","27208","Classic","False","SystemMaintenance","Non-DLP service: Dell Trusted Device"
+"9/19/2025 7:45:22 AM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1476","24220","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 7:42:39 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","8236","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:41:43 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","21076","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:41:28 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","14672","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:41:28 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","14672","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:41:04 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","27208","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:41:04 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","27208","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:40:14 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","27208","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:40:14 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","27208","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:40:12 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","19212","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:40:12 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","27208","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:39:59 AM","7031","Error","Service Control Manager","The Dell Trusted Device service terminated unexpectedly.  It has done this 2 time(s).  The following corrective action will be taken in 300000 milliseconds: Restart the service.","1476","8236","Classic","False","SystemMaintenance","Non-DLP service: Dell Trusted Device"
+"9/19/2025 7:39:51 AM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1476","8236","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 7:36:04 AM","7031","Error","Service Control Manager","The Dell Trusted Device service terminated unexpectedly.  It has done this 1 time(s).  The following corrective action will be taken in 120000 milliseconds: Restart the service.","1476","27208","Classic","False","SystemMaintenance","Non-DLP service: Dell Trusted Device"
+"9/19/2025 7:35:53 AM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1476","15232","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 7:14:28 AM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1476","1636","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 7:04:02 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","7784","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:04:01 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","10564","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:04:01 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","10564","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 7:03:55 AM","7031","Error","Service Control Manager","The Dell Trusted Device service terminated unexpectedly.  It has done this 1 time(s).  The following corrective action will be taken in 120000 milliseconds: Restart the service.","1476","10552","Classic","False","SystemMaintenance","Non-DLP service: Dell Trusted Device"
+"9/19/2025 7:03:50 AM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1476","10192","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 7:01:31 AM","7043","Error","Service Control Manager","The Windows Defender Advanced Threat Protection Service service did not shut down properly after receiving a preshutdown control.","1476","6320","Classic","True","DLPService","DLP service: Windows Defender Advanced Threat Protection Service"
+"9/19/2025 6:54:31 AM","7000","Error","Service Control Manager","The Diagnostic Service Host service failed to start due to the following error: 
+A privilege that the service requires to function properly does not exist in the service account configuration. You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.","1476","17812","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 6:41:24 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","7660","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 6:41:24 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","7660","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 6:41:23 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","7660","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 6:41:23 AM","7000","Error","Service Control Manager","The IntelTACD service failed to start due to the following error: 
+The system cannot find the file specified.","1476","13220","Classic","False","SystemMaintenance","Non-DLP service: IntelTACD"
+"9/19/2025 6:28:48 AM","7043","Error","Service Control Manager","The Windows Defender Advanced Threat Protection Service service did not shut down properly after receiving a preshutdown control.","1516","9380","Classic","True","DLPService","DLP service: Windows Defender Advanced Threat Protection Service"
+"9/19/2025 6:12:29 AM","7000","Error","Service Control Manager","The Dell TechHub service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion.","1516","19024","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:12:29 AM","7009","Error","Service Control Manager","A timeout was reached (30000 milliseconds) while waiting for the Dell TechHub service to connect.","1516","19024","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:11:54 AM","7000","Error","Service Control Manager","The Dell TechHub service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion.","1516","9576","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:11:54 AM","7009","Error","Service Control Manager","A timeout was reached (30000 milliseconds) while waiting for the Dell TechHub service to connect.","1516","9576","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:11:19 AM","7000","Error","Service Control Manager","The Dell TechHub service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion.","1516","9576","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:11:19 AM","7009","Error","Service Control Manager","A timeout was reached (30000 milliseconds) while waiting for the Dell TechHub service to connect.","1516","9576","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:10:44 AM","7000","Error","Service Control Manager","The Dell TechHub service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion.","1516","12436","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:10:44 AM","7009","Error","Service Control Manager","A timeout was reached (30000 milliseconds) while waiting for the Dell TechHub service to connect.","1516","12436","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:10:09 AM","7000","Error","Service Control Manager","The Dell TechHub service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion.","1516","12436","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:10:09 AM","7009","Error","Service Control Manager","A timeout was reached (30000 milliseconds) while waiting for the Dell TechHub service to connect.","1516","12436","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:09:34 AM","7000","Error","Service Control Manager","The Dell TechHub service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion.","1516","12436","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:09:34 AM","7009","Error","Service Control Manager","A timeout was reached (30000 milliseconds) while waiting for the Dell TechHub service to connect.","1516","12436","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:08:59 AM","7000","Error","Service Control Manager","The Dell TechHub service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion.","1516","12436","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 6:08:59 AM","7009","Error","Service Control Manager","A timeout was reached (30000 milliseconds) while waiting for the Dell TechHub service to connect.","1516","12436","Classic","False","SystemMaintenance","Non-DLP service: Dell TechHub"
+"9/19/2025 5:57:03 AM","7043","Error","Service Control Manager","The Windows Defender Advanced Threat Protection Service service did not shut down properly after receiving a preshutdown control.","1332","13264","Classic","True","DLPService","DLP service: Windows Defender Advanced Threat Protection Service"
+"9/19/2025 5:52:27 AM","7031","Error","Service Control Manager","The Microsoft Intune Management Extension service terminated unexpectedly.  It has done this 1 time(s).  The following corrective action will be taken in 60000 milliseconds: Restart the service.","1332","9080","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 7:57:17 AM","7030","Error","Service Control Manager","The Printer Extensions and Notifications service is marked as an interactive service.  However, the system is configured to not allow interactive services.  This service may not function properly.","1208","1216","Classic","False","SystemMaintenance","Non-DLP service: Printer Extensions"
+"9/19/2025 7:57:16 AM","7023","Error","Service Control Manager","The Network List Service service terminated with the following error: 
+The device is not ready.","1208","4140","Classic","False","SystemGeneral","No DLP indicators found"
+"9/19/2025 7:55:16 AM","7023","Error","Service Control Manager","The netprofm service terminated with the following error: 
+The device is not ready.","1208","1324","Classic","False","SystemGeneral","No DLP indicators found"

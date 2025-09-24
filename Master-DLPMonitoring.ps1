@@ -186,6 +186,7 @@ function Show-MonitoringMenu {
     if ($UserPrincipalName) {
         Write-ColorOutput "  User Principal: $UserPrincipalName" -Color $Colors.Success
     }
+    
     Write-ColorOutput "`nTip: You can also run with parameters to skip this menu:" -Color $Colors.Info
     Write-ColorOutput "  .\Master-DLPMonitoring.ps1 -MonitoringMode Essential -ExportReports" -Color $Colors.Success
     Write-ColorOutput "  .\Master-DLPMonitoring.ps1 -MonitoringMode Performance -Duration 15" -Color $Colors.Success
@@ -199,7 +200,7 @@ function Show-MonitoringMenu {
             $selectionNum = [int]$selection
             
             if ($selectionNum -ge 1 -and $selectionNum -le 4) {
-                $selectedProfile = $profiles[$selectionNum - 1]
+                $selectedProfile = $monitoringProfiles[$selectionNum - 1]
                 Write-ColorOutput "`n[+] Selected: $($selectedProfile.DisplayName)" -Color $Colors.Success
                 Write-ColorOutput "  Duration: $($selectedProfile.EstimatedDuration)" -Color $Colors.Info
                 Write-ColorOutput "  Components: $($selectedProfile.Components.Count) monitoring scripts will run" -Color $Colors.Info
@@ -382,6 +383,18 @@ Write-ColorOutput $('='*80) -Color $Colors.Header
 
 # Show menu if no monitoring mode is specified and not skipping menu
 if ([string]::IsNullOrEmpty($MonitoringMode) -and -not $SkipMenu) {
+    # Ask about report export if not already specified - do this BEFORE the menu
+    if (-not $ExportReports) {
+        Write-ColorOutput "`nWould you like to export detailed CSV reports? [Y/N]: " -Color $Colors.Warning -NoNewline
+        $exportChoice = Read-Host
+        if ($exportChoice -match '^[Yy]') {
+            $ExportReports = $true
+            Write-ColorOutput "Report export enabled - comprehensive CSV files will be generated" -Color $Colors.Success
+        } else {
+            Write-ColorOutput "Report export disabled - console output only" -Color $Colors.Info
+        }
+    }
+    
     $selectedMode = Show-MonitoringMenu -MonitoringComponents $MonitoringComponents
     
     # Handle individual component selection
@@ -482,7 +495,6 @@ try {
     Write-ColorOutput "`nExecuting DLP monitoring suite..." -Color $Colors.Progress
     Write-ColorOutput "Components to run: $($availableComponents.Count)" -Color $Colors.Info
     
-    $monitoringResults = @{}
     $allKPIResults = @()
     $executionSummary = @{
         StartTime = Get-Date
