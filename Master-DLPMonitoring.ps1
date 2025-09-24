@@ -3,15 +3,17 @@
 # All rights reserved
 
 .SYNOPSIS
-    Master DLP Monitoring Suite - Orchestrates all DLP monitoring scripts and generates consolidated reports.
+    Master DLP Monitoring Suite - Interactive orchestration of DLP monitoring scripts with menu-driven selection.
 
 .DESCRIPTION
-    Comprehensive orchestration script that executes all DLP monitoring components and provides
-    unified reporting and KPI tracking across policy activity, endpoint performance, file latency,
-    network impact, user experience, and event log analysis.
+    Comprehensive orchestration script that executes DLP monitoring components with an interactive menu system.
+    Provides unified reporting and KPI tracking across policy activity, endpoint performance, file latency,
+    network impact, user experience, and event log analysis. Features intelligent menu-driven selection
+    for different monitoring scenarios.
 
 .PARAMETER MonitoringMode
-    Mode of operation: 'Full' (all scripts), 'Essential' (core scripts only), 'Performance' (system impact only), 'Policy' (policy and events only).
+    Mode of operation: 'Full' (all scripts), 'Essential' (core scripts only), 'Performance' (system impact only), 'Policy' (policy and events only), or 'Custom' (individual selection).
+    If not specified, an interactive menu will be displayed.
 
 .PARAMETER Duration
     Duration in minutes for performance monitoring components (default: 10).
@@ -31,6 +33,28 @@
 .PARAMETER IncludeUserSurvey
     Include user experience survey collection in the monitoring cycle.
 
+.PARAMETER Interactive
+    Force interactive confirmation prompts even when parameters are provided.
+
+.PARAMETER SkipMenu
+    Skip the interactive menu and use default Essential mode if no MonitoringMode specified.
+
+.EXAMPLE
+    .\Master-DLPMonitoring.ps1
+    Shows interactive menu to select monitoring configuration
+
+.EXAMPLE
+    .\Master-DLPMonitoring.ps1 -MonitoringMode Essential -ExportReports
+    Runs essential monitoring components with CSV export
+
+.EXAMPLE
+    .\Master-DLPMonitoring.ps1 -MonitoringMode Full -UserPrincipalName admin@domain.com -Duration 15
+    Complete monitoring suite with extended performance monitoring
+
+.EXAMPLE
+    .\Master-DLPMonitoring.ps1 -QuickTest -ExportReports
+    Shows menu for quick test mode selection with reporting
+
 .WARRANTY
     Distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
     either express or implied. See the Apache-2.0 WITH Commons-Clause License for the specific language
@@ -39,14 +63,15 @@
 
 [CmdletBinding()]
 param(
-    [ValidateSet("Full", "Essential", "Performance", "Policy")]
-    [string]$MonitoringMode = "Full",
+    [string]$MonitoringMode = "",
     [int]$Duration = 10,
     [switch]$ExportReports,
     [switch]$QuickTest,
     [string]$ScriptDirectory = ".",
     [string]$UserPrincipalName,
-    [switch]$IncludeUserSurvey
+    [switch]$IncludeUserSurvey,
+    [switch]$Interactive,
+    [switch]$SkipMenu
 )
 
 $script:scriptVersion = "1.0"
@@ -79,6 +104,221 @@ function Write-ColorOutput {
     }
     
     Write-Host @params
+}
+
+function Show-MonitoringMenu {
+    param([hashtable]$MonitoringComponents)
+    
+    Write-ColorOutput "`n$('='*80)" -Color $Colors.Header
+    Write-ColorOutput "   MICROSOFT PURVIEW DLP MONITORING SUITE" -Color $Colors.Header
+    Write-ColorOutput "            Select Monitoring Configuration" -Color $Colors.Info
+    Write-ColorOutput $('='*80) -Color $Colors.Header
+    
+    # Define monitoring profiles with descriptions
+    $monitoringProfiles = @(
+        @{
+            Index = 1
+            Name = "Full"
+            DisplayName = "Full Monitoring Suite"
+            Description = "Complete DLP health assessment across all components"
+            Components = @("PolicyActivity", "EndpointPerformance", "FileLatency", "NetworkImpact", "UserExperience", "EventLogs")
+            EstimatedDuration = "15-25 minutes"
+            Recommendation = "Recommended for monthly comprehensive assessments"
+        },
+        @{
+            Index = 2
+            Name = "Essential"
+            DisplayName = "Essential Monitoring"
+            Description = "Core DLP health monitoring for routine checks"
+            Components = @("PolicyActivity", "EndpointPerformance", "FileLatency", "EventLogs")
+            EstimatedDuration = "8-12 minutes"
+            Recommendation = "Recommended for weekly health checks"
+        },
+        @{
+            Index = 3
+            Name = "Performance"
+            DisplayName = "Performance Impact Analysis"
+            Description = "Focus on system performance and user experience impact"
+            Components = @("EndpointPerformance", "FileLatency", "NetworkImpact")
+            EstimatedDuration = "10-15 minutes"
+            Recommendation = "Use when investigating performance concerns"
+        },
+        @{
+            Index = 4
+            Name = "Policy"
+            DisplayName = "Policy & Health Analysis"
+            Description = "DLP policy effectiveness and operational health"
+            Components = @("PolicyActivity", "EventLogs")
+            EstimatedDuration = "5-8 minutes"
+            Recommendation = "Quick policy compliance and health assessment"
+        }
+    )
+    
+    # Display profile options
+    foreach ($monitoringProfile in $monitoringProfiles) {
+        $componentCount = $monitoringProfile.Components.Count
+        $componentList = $monitoringProfile.Components | ForEach-Object {
+            $MonitoringComponents[$_].Description
+        }
+        
+        Write-ColorOutput "`n  [$($monitoringProfile.Index)] $($monitoringProfile.DisplayName)" -Color $Colors.Success
+        Write-ColorOutput "      $($monitoringProfile.Description)" -Color $Colors.Info
+        Write-ColorOutput "      Components: $componentCount ($($componentList -join ', '))" -Color $Colors.Progress
+        Write-ColorOutput "      Duration: $($monitoringProfile.EstimatedDuration)" -Color $Colors.Progress
+        Write-ColorOutput "      $($monitoringProfile.Recommendation)" -Color $Colors.Info
+    }
+    
+    # Add individual component selection
+    Write-ColorOutput "`n  [5] Individual Component Selection" -Color $Colors.Warning
+    Write-ColorOutput "      Choose specific monitoring components to run" -Color $Colors.Info
+    Write-ColorOutput "      Duration: Variable based on selection" -Color $Colors.Progress
+    Write-ColorOutput "      Advanced users - customize your monitoring scope" -Color $Colors.Info
+    
+    # Add exit option
+    Write-ColorOutput "`n  [6] Exit" -Color $Colors.Error
+    Write-ColorOutput "      Cancel monitoring and exit" -Color $Colors.Info
+    
+    Write-ColorOutput "`n$('='*80)" -Color $Colors.Header
+    Write-ColorOutput "Configuration Options:" -Color $Colors.Info
+    Write-ColorOutput "  Duration: $Duration minutes (for performance monitoring)" -Color $Colors.Success
+    Write-ColorOutput "  Export Reports: $(if ($ExportReports) { 'Enabled' } else { 'Disabled' })" -Color $Colors.Success
+    Write-ColorOutput "  Quick Test: $(if ($QuickTest) { 'Enabled' } else { 'Disabled' })" -Color $Colors.Success
+    if ($UserPrincipalName) {
+        Write-ColorOutput "  User Principal: $UserPrincipalName" -Color $Colors.Success
+    }
+    Write-ColorOutput "`nTip: You can also run with parameters to skip this menu:" -Color $Colors.Info
+    Write-ColorOutput "  .\Master-DLPMonitoring.ps1 -MonitoringMode Essential -ExportReports" -Color $Colors.Success
+    Write-ColorOutput "  .\Master-DLPMonitoring.ps1 -MonitoringMode Performance -Duration 15" -Color $Colors.Success
+    Write-ColorOutput $('-'*80) -Color $Colors.Header
+    
+    do {
+        Write-ColorOutput "`nSelect monitoring configuration [1-6]: " -Color $Colors.Warning -NoNewline
+        $selection = Read-Host
+        
+        if ($selection -match '^\d+$') {
+            $selectionNum = [int]$selection
+            
+            if ($selectionNum -ge 1 -and $selectionNum -le 4) {
+                $selectedProfile = $profiles[$selectionNum - 1]
+                Write-ColorOutput "`n[+] Selected: $($selectedProfile.DisplayName)" -Color $Colors.Success
+                Write-ColorOutput "  Duration: $($selectedProfile.EstimatedDuration)" -Color $Colors.Info
+                Write-ColorOutput "  Components: $($selectedProfile.Components.Count) monitoring scripts will run" -Color $Colors.Info
+                return $selectedProfile.Name
+            } elseif ($selectionNum -eq 5) {
+                Write-ColorOutput "`n[+] Individual Component Selection" -Color $Colors.Success
+                return Show-ComponentSelectionMenu -MonitoringComponents $MonitoringComponents
+            } elseif ($selectionNum -eq 6) {
+                Write-ColorOutput "`nMonitoring cancelled by user" -Color $Colors.Info
+                exit 0
+            } else {
+                Write-ColorOutput "`n[!] Invalid selection. Please choose a number between 1 and 6" -Color $Colors.Error
+            }
+        } else {
+            Write-ColorOutput "`n[!] Please enter a valid number" -Color $Colors.Error
+        }
+    } while ($true)
+}
+
+function Show-ComponentSelectionMenu {
+    param([hashtable]$MonitoringComponents)
+    
+    Write-ColorOutput "`n$('='*60)" -Color $Colors.Header
+    Write-ColorOutput "   INDIVIDUAL COMPONENT SELECTION" -Color $Colors.Header
+    Write-ColorOutput $('='*60) -Color $Colors.Header
+    
+    $availableComponents = @()
+    $index = 1
+    
+    foreach ($componentName in $MonitoringComponents.Keys | Sort-Object) {
+        $component = $MonitoringComponents[$componentName]
+        $availableComponents += @{
+            Index = $index
+            Name = $componentName
+            Component = $component
+        }
+        
+        $authRequired = if ($component.RequiresAuth) { " (requires authentication)" } else { "" }
+        $essential = if ($component.Essential) { " [Essential]" } else { " [Optional]" }
+        
+        Write-ColorOutput "`n  [$index] $($component.Description)$essential" -Color $(if ($component.Essential) { $Colors.Success } else { $Colors.Warning })
+        Write-ColorOutput "      Script: $($component.ScriptName)" -Color $Colors.Info
+        Write-ColorOutput "      KPIs: $($component.KPICategories -join ', ')$authRequired" -Color $Colors.Progress
+        
+        $index++
+    }
+    
+    Write-ColorOutput "`n  [$index] Select All Essential Components" -Color $Colors.Success
+    Write-ColorOutput "      Run all essential monitoring components" -Color $Colors.Info
+    
+    $allIndex = $index + 1
+    Write-ColorOutput "`n  [$allIndex] Select All Components" -Color $Colors.Warning
+    Write-ColorOutput "      Run complete monitoring suite" -Color $Colors.Info
+    
+    $backIndex = $allIndex + 1
+    Write-ColorOutput "`n  [$backIndex] Back to Main Menu" -Color $Colors.Info
+    Write-ColorOutput "      Return to monitoring mode selection" -Color $Colors.Info
+    
+    Write-ColorOutput "`n$('-'*60)" -Color $Colors.Header
+    Write-ColorOutput "Enter component numbers separated by commas (e.g., 1,2,4)" -Color $Colors.Info
+    Write-ColorOutput "Or select a preset option" -Color $Colors.Info
+    Write-ColorOutput $('-'*60) -Color $Colors.Header
+    
+    do {
+        Write-ColorOutput "`nSelect components [1-$backIndex or comma-separated]: " -Color $Colors.Warning -NoNewline
+        $selection = Read-Host
+        
+        # Handle single number selections
+        if ($selection -match '^\d+$') {
+            $selectionNum = [int]$selection
+            
+            if ($selectionNum -ge 1 -and $selectionNum -le $availableComponents.Count) {
+                $selectedComponent = $availableComponents[$selectionNum - 1]
+                Write-ColorOutput "`n[+] Selected: $($selectedComponent.Component.Description)" -Color $Colors.Success
+                # Force return as array using Write-Output -NoEnumerate
+                $result = @($selectedComponent.Name)
+                Write-Output $result -NoEnumerate
+                return
+            } elseif ($selectionNum -eq $index) {
+                Write-ColorOutput "`n[+] Selected: All Essential Components" -Color $Colors.Success
+                return "Essential"
+            } elseif ($selectionNum -eq $allIndex) {
+                Write-ColorOutput "`n[+] Selected: All Components" -Color $Colors.Success
+                return "Full"
+            } elseif ($selectionNum -eq $backIndex) {
+                return Show-MonitoringMenu -MonitoringComponents $MonitoringComponents
+            } else {
+                Write-ColorOutput "`n[!] Invalid selection. Please choose a number between 1 and $backIndex" -Color $Colors.Error
+            }
+        }
+        # Handle comma-separated selections
+        elseif ($selection -match '^[\d,\s]+$') {
+            $numbers = $selection -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ -match '^\d+$' } | ForEach-Object { [int]$_ }
+            $validNumbers = $numbers | Where-Object { $_ -ge 1 -and $_ -le $availableComponents.Count }
+            
+            if ($validNumbers.Count -gt 0) {
+                $selectedComponents = $validNumbers | ForEach-Object {
+                    $availableComponents[$_ - 1].Name
+                }
+                
+                $selectedDescriptions = $validNumbers | ForEach-Object {
+                    $availableComponents[$_ - 1].Component.Description
+                }
+                
+                Write-ColorOutput "`n[+] Selected Components ($($selectedComponents.Count)):" -Color $Colors.Success
+                foreach ($desc in $selectedDescriptions) {
+                    Write-ColorOutput "  • $desc" -Color $Colors.Info
+                }
+                
+                # Use Write-Output -NoEnumerate to preserve array structure
+                Write-Output $selectedComponents -NoEnumerate
+                return
+            } else {
+                Write-ColorOutput "`n[!] No valid component numbers found in selection" -Color $Colors.Error
+            }
+        } else {
+            Write-ColorOutput "`n[!] Please enter valid numbers (single number or comma-separated)" -Color $Colors.Error
+        }
+    } while ($true)
 }
 
 # Define monitoring components
@@ -140,6 +380,45 @@ Write-ColorOutput "MASTER DLP MONITORING SUITE" -Color $Colors.Header
 Write-ColorOutput "Version: $script:scriptVersion | Author: $script:scriptAuthor" -Color $Colors.Header
 Write-ColorOutput $('='*80) -Color $Colors.Header
 
+# Show menu if no monitoring mode is specified and not skipping menu
+if ([string]::IsNullOrEmpty($MonitoringMode) -and -not $SkipMenu) {
+    $selectedMode = Show-MonitoringMenu -MonitoringComponents $MonitoringComponents
+    
+    # Handle individual component selection
+    if ($selectedMode -is [array]) {
+        # Custom component selection - selectedMode is an array of component names
+        $selectedComponents = $selectedMode
+        $MonitoringMode = "Custom"
+        Write-ColorOutput "`nUsing custom component selection: $($selectedComponents -join ', ')" -Color $Colors.Info
+    } elseif ($selectedMode -in @("Full", "Essential", "Performance", "Policy")) {
+        # Standard monitoring mode
+        $MonitoringMode = $selectedMode
+    } else {
+        # This shouldn't happen, but handle gracefully
+        Write-ColorOutput "`nERROR: Unexpected menu result: $selectedMode" -Color $Colors.Error
+        Write-ColorOutput "Type: $($selectedMode.GetType().Name), Value: '$selectedMode'" -Color $Colors.Info
+        Write-ColorOutput "This appears to be a component name that wasn't properly wrapped as an array." -Color $Colors.Info
+        Write-ColorOutput "Treating as custom component selection..." -Color $Colors.Warning
+        
+        # Handle single component as custom selection
+        $selectedComponents = @($selectedMode)
+        $MonitoringMode = "Custom"
+        Write-ColorOutput "Using custom component selection: $selectedMode" -Color $Colors.Info
+    }
+} elseif ([string]::IsNullOrEmpty($MonitoringMode)) {
+    # Default to Essential if no mode specified and skipping menu
+    $MonitoringMode = "Essential"
+    Write-ColorOutput "`nNo monitoring mode specified - defaulting to Essential mode" -Color $Colors.Info
+}
+
+# Validate MonitoringMode parameter
+$validModes = @("Full", "Essential", "Performance", "Policy", "Custom")
+if ($MonitoringMode -notin $validModes) {
+    Write-ColorOutput "`nERROR: Invalid monitoring mode '$MonitoringMode'" -Color $Colors.Error
+    Write-ColorOutput "Valid modes: $($validModes -join ', ')" -Color $Colors.Info
+    exit 1
+}
+
 Write-ColorOutput "`nMonitoring Configuration:" -Color $Colors.Info
 Write-ColorOutput "  Mode: $MonitoringMode" -Color $Colors.Info
 Write-ColorOutput "  Duration: $Duration minutes" -Color $Colors.Info
@@ -151,11 +430,26 @@ try {
     # Validate script directory and components
     Write-ColorOutput "`nValidating monitoring components..." -Color $Colors.Progress
     
-    $selectedComponents = $MonitoringConfigurations[$MonitoringMode]
+    # Determine which components to run
+    if ($MonitoringMode -eq "Custom" -and (Get-Variable -Name "selectedComponents" -ErrorAction SilentlyContinue)) {
+        $componentsToRun = $selectedComponents
+    } else {
+        $componentsToRun = $MonitoringConfigurations[$MonitoringMode]
+    }
+    
+    if (-not $componentsToRun) {
+        throw "Invalid monitoring mode: $MonitoringMode"
+    }
+    
     $availableComponents = @()
     $missingComponents = @()
     
-    foreach ($componentName in $selectedComponents) {
+    foreach ($componentName in $componentsToRun) {
+        if (-not $MonitoringComponents.ContainsKey($componentName)) {
+            Write-ColorOutput "  [-] Unknown component: $componentName" -Color $Colors.Error
+            continue
+        }
+        
         $component = $MonitoringComponents[$componentName]
         $scriptPath = Join-Path $ScriptDirectory $component.ScriptName
         
@@ -450,9 +744,19 @@ try {
             Write-ColorOutput "  [+] Run policy monitoring after DLP policy changes" -Color $Colors.Info
             Write-ColorOutput "      Use for compliance reporting" -Color $Colors.Info
         }
+        "Custom" {
+            Write-ColorOutput "  [+] Custom component monitoring completed" -Color $Colors.Info
+            Write-ColorOutput "      Schedule based on selected components" -Color $Colors.Info
+        }
     }
     
     Write-ColorOutput "`n[+] Master DLP monitoring suite completed successfully" -Color $Colors.Success
+    $selectedComponentsText = if ($MonitoringMode -eq 'Custom' -and (Get-Variable -Name "selectedComponents" -ErrorAction SilentlyContinue)) { 
+        'Custom (' + ($selectedComponents -join ', ') + ')' 
+    } else { 
+        $MonitoringMode 
+    }
+    Write-ColorOutput "Monitoring configuration: $selectedComponentsText" -Color $Colors.Info
     
     # Return success code
     exit 0

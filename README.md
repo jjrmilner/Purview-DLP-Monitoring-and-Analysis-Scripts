@@ -459,7 +459,7 @@ Export CSV data can be integrated with:
 - **Power BI**: Create executive dashboards from exported data
 - **Azure Monitor**: Send metrics to Azure for cloud-based monitoring
 - **System Center**: Integration with SCOM for enterprise monitoring
-
+---
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these guidelines:
@@ -470,42 +470,44 @@ Contributions are welcome! Please follow these guidelines:
 4. **Test thoroughly** in enterprise environments
 5. **Update documentation** for any new features or changes
 6. **Submit pull requests** with detailed descriptions
-
+---
 ### Development Standards
 - Use approved verb-noun PowerShell naming conventions
 - Include comprehensive error handling and validation
 - Maintain backward compatibility where possible
 - Follow the existing code style and formatting
 - Include unit tests for new functionality
+---
+## 📄 **License:** Apache 2.0 (see LICENSE)  
+**Additional restriction:** Commons Clause (see COMMONS-CLAUSE.txt)
 
-## 📄 License
+**SPDX headers**
+- Each source file includes:  
+  `SPDX-License-Identifier: Apache-2.0 WITH Commons-Clause`
 
-This project is licensed under the Apache 2.0 License with Commons Clause - see the [LICENSE](LICENSE) file for details.
+---
 
-### Key License Points:
-- **Commercial Use**: Permitted with restrictions
-- **Modification**: Allowed with attribution
-- **Distribution**: Permitted with license inclusion
-- **Private Use**: Fully permitted
-- **Selling Prohibited**: Commons Clause restriction
+### FAQ: MSP and Consulting Use
 
-## 🙋 Support
+**Q: Can an MSP or consultant use this tool in a paid engagement?**  
+**A:** It depends on how the tool is used:  
+- **Allowed:** If the tool is used internally by the end customer (e.g., installed in their tenant) and the consultant is simply assisting, this is generally acceptable.  
+- **Not allowed without a commercial licence:** If the MSP or consultant provides a managed service where the tool runs in their own environment (e.g., their tenant or infrastructure) or if the value of the service substantially derives from the tool’s functionality, this falls under the definition of “Sell” in the Commons Clause and requires a commercial licence.
 
-### Documentation
-- **Script Help**: Use `Get-Help .\ScriptName.ps1 -Full` for detailed documentation
-- **Parameter Guidance**: All scripts include comprehensive parameter help
-- **Example Usage**: Multiple examples provided for each script
+**Q: Why is this restricted?**  
+The Commons Clause removes the right to “Sell,” which includes providing a service for a fee where the value derives from the software. This ensures fair use and prevents competitors from monetising the tool without contributing back.
 
-### Community Support
-- **Issues**: Report bugs and request features via GitHub Issues
-- **Discussions**: Join community discussions for best practices
-- **Wiki**: Additional documentation and use cases
+**Q: How do I get a commercial licence?**  
+Contact Global Micro Solutions (Pty) Ltd at:  
+📧 licensing@globalmicro.co.za
 
-### Enterprise Support
-For enterprise deployments and custom requirements:
-- **Professional Services**: Available for implementation and customization
-- **Training**: PowerShell and DLP monitoring best practices
-- **Consulting**: Architecture guidance and optimization
+---
+
+## ⚠️ Warranty Disclaimer
+
+Distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. Please review the Apache-2.0 WITH Commons-Clause License for the specific language governing permissions and limitations under the License.
+
+---
 
 ## 🏷️ Version History
 
