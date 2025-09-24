@@ -459,7 +459,7 @@ Export CSV data can be integrated with:
 - **Power BI**: Create executive dashboards from exported data
 - **Azure Monitor**: Send metrics to Azure for cloud-based monitoring
 - **System Center**: Integration with SCOM for enterprise monitoring
-
+---
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these guidelines:
@@ -470,14 +470,14 @@ Contributions are welcome! Please follow these guidelines:
 4. **Test thoroughly** in enterprise environments
 5. **Update documentation** for any new features or changes
 6. **Submit pull requests** with detailed descriptions
-
+---
 ### Development Standards
 - Use approved verb-noun PowerShell naming conventions
 - Include comprehensive error handling and validation
 - Maintain backward compatibility where possible
 - Follow the existing code style and formatting
 - Include unit tests for new functionality
-
+---
 ## 📄 **License:** Apache 2.0 (see LICENSE)  
 **Additional restriction:** Commons Clause (see COMMONS-CLAUSE.txt)
 
@@ -508,7 +508,6 @@ Contact Global Micro Solutions (Pty) Ltd at:
 Distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. Please review the Apache-2.0 WITH Commons-Clause License for the specific language governing permissions and limitations under the License.
 
 ---
-
 
 ## 🏷️ Version History
 
