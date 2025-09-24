@@ -31,29 +31,173 @@ DLP-Performance-Monitoring/
 └── README.md                          # This file
 ```
 
+## ⭐ Key Menu System Improvements (v2.1)
+
+### Enhanced User Experience
+- **🎯 Zero Learning Curve**: No need to memorize parameters or script names
+- **📋 Guided Selection**: Clear descriptions with duration estimates and recommendations
+- **🔧 Flexible Operation**: Menu-driven for interactive use, parameter-based for automation
+- **✅ Validation Built-In**: Prevents invalid selections and provides helpful error messages
+- **📊 Export Integration**: Automated CSV report prompting with clear explanations
+
+### Enterprise-Ready Features
+- **🏢 Backward Compatibility**: All existing parameter combinations continue to work
+- **⚡ Automation Support**: `-SkipMenu` parameter for scheduled tasks and SIEM integration
+- **🔄 Hybrid Operation**: Menu system can be bypassed or enhanced with additional parameters
+- **🛡️ Robust Error Handling**: Graceful fallbacks when components are missing or fail
+- **📈 Enhanced Reporting**: 14+ CSV files generated with comprehensive analysis
+
+### Operational Benefits
+- **⏱️ Time Estimation**: Clear duration estimates for planning monitoring windows
+- **🎨 Visual Clarity**: Color-coded menus with component classifications (Essential/Optional)
+- **🔍 Component Discovery**: Learn about available monitoring capabilities through menu descriptions
+- **📋 Parameter Tips**: Menu displays equivalent command-line usage for automation reference
+- **🎯 Focus Selection**: Choose specific monitoring areas without running unnecessary components
+
+## 🎯 Interactive Menu System
+
+### Menu-Driven Operation (New in v2.1)
+The Master script now features a comprehensive interactive menu system for guided DLP monitoring:
+
+```
+================================================================================
+   MICROSOFT PURVIEW DLP MONITORING SUITE
+            Select Monitoring Configuration
+================================================================================
+
+  [1] Full Monitoring Suite
+      Complete DLP health assessment across all components
+      Components: 6 (DLP Policy Activity Analysis, Endpoint Performance Impact, 
+                     File Operation Latency, Network Performance Impact, 
+                     User Experience Monitoring, Event Log Analysis)
+      Duration: 15-25 minutes
+      Recommended for monthly comprehensive assessments
+
+  [2] Essential Monitoring
+      Core DLP health monitoring for routine checks
+      Components: 4 (DLP Policy Activity Analysis, Endpoint Performance Impact, 
+                     File Operation Latency, Event Log Analysis)
+      Duration: 8-12 minutes
+      Recommended for weekly health checks
+
+  [3] Performance Impact Analysis
+      Focus on system performance and user experience impact
+      Components: 3 (Endpoint Performance Impact, File Operation Latency, 
+                     Network Performance Impact)
+      Duration: 10-15 minutes
+      Use when investigating performance concerns
+
+  [4] Policy & Health Analysis
+      DLP policy effectiveness and operational health
+      Components: 2 (DLP Policy Activity Analysis, Event Log Analysis)
+      Duration: 5-8 minutes
+      Quick policy compliance and health assessment
+
+  [5] Individual Component Selection
+      Choose specific monitoring components to run
+      Duration: Variable based on selection
+      Advanced users - customize your monitoring scope
+
+  [6] Exit
+      Cancel monitoring and exit
+
+Would you like to export detailed CSV reports? [Y/N]: Y
+Report export enabled - comprehensive CSV files will be generated
+
+Select monitoring configuration [1-6]:
+```
+
+### Individual Component Selection
+Advanced users can select specific monitoring components:
+
+```
+============================================================
+   INDIVIDUAL COMPONENT SELECTION
+============================================================
+
+  [1] Endpoint Performance Impact [Essential]
+      Script: Check-DLPEndpointPerformance.ps1
+      KPIs: CPU Impact, Memory Usage, Disk I/O
+
+  [2] Event Log Analysis [Essential]  
+      Script: Check-DLPEventLogs.ps1
+      KPIs: Error Rate, Warning Rate, Agent Health
+
+  [3] File Operation Latency [Essential]
+      Script: Check-DLPFileAppLatency.ps1
+      KPIs: File Open Delay, Save Delay, Copy/Move Delay
+
+  [4] Network Performance Impact [Optional]
+      Script: Check-DLPNetworkImpact.ps1
+      KPIs: Network Overhead, Upload Delay, Sync Impact
+
+  [5] DLP Policy Activity Analysis [Essential]
+      Script: Check-DLPPolicyActivity.ps1
+      KPIs: Policy Coverage, Match Rate, Enforcement Rate (requires authentication)
+
+  [6] User Experience Monitoring [Optional]
+      Script: Check-DLPUserExperience.ps1
+      KPIs: User Satisfaction, Workflow Disruption, Training Effectiveness
+
+Select components [1-6 or comma-separated]: 1,3,5
+```
+
+**Selection Methods:**
+- **Single Selection**: Choose individual components (e.g., "4")
+- **Multi-Selection**: Comma-separated list (e.g., "1,3,5")
+- **Preset Options**: All Essential or All Components
+- **Back Navigation**: Return to main menu anytime
+
+### Menu System Benefits
+- **User-Friendly**: No need to memorize parameters or component names
+- **Guided Experience**: Clear descriptions and recommendations for each option
+- **Flexible Selection**: From preset profiles to individual component choice
+- **Export Integration**: Automated prompting for CSV report generation
+- **Parameter Discovery**: Shows command-line alternatives for automation
+- **Validation**: Prevents invalid selections with helpful error messages
+
 ## 🔧 Core Components
 
 ### 1. Master-DLPMonitoring.ps1
-**Enterprise orchestration script** that coordinates all monitoring components with configurable execution modes.
+**Enterprise orchestration script** with **interactive menu system** that coordinates all monitoring components with guided configuration.
 
-**Features:**
-- **Monitoring Modes**: Full, Essential, Performance, Policy
+**Enhanced Features:**
+- **Interactive Menu System**: User-friendly guided selection with component descriptions
+- **Individual Component Selection**: Choose specific monitoring scripts to run
+- **Export Report Prompting**: Automated CSV export with user confirmation
+- **Monitoring Modes**: Full, Essential, Performance, Policy, Custom
 - **Automated Execution**: Runs all components with unified reporting
-- **KPI Consolidation**: Cross-component health assessment
-- **Error Handling**: Robust execution with failure recovery
+- **KPI Consolidation**: Cross-component health assessment with executive summaries
+- **Error Handling**: Robust execution with failure recovery and graceful fallbacks
 - **Flexible Configuration**: Customizable duration, export options, quick test modes
 
-**Usage:**
+**Interactive Menu Usage (Recommended):**
 ```powershell
-# Full monitoring suite (recommended)
+# Menu-driven selection with guided configuration
+.\Master-DLPMonitoring.ps1
+
+# Menu with export reports pre-enabled
+.\Master-DLPMonitoring.ps1 -ExportReports
+```
+
+**Direct Parameter Usage (Advanced):**
+```powershell
+# Full monitoring suite with comprehensive reporting
 .\Master-DLPMonitoring.ps1 -MonitoringMode Full -ExportReports -UserPrincipalName user@domain.com
 
-# Essential monitoring only
+# Essential monitoring with quick test
 .\Master-DLPMonitoring.ps1 -MonitoringMode Essential -Duration 5 -QuickTest
 
-# Performance impact assessment
-.\Master-DLPMonitoring.ps1 -MonitoringMode Performance -Duration 15
+# Skip menu for automation scenarios
+.\Master-DLPMonitoring.ps1 -MonitoringMode Performance -Duration 15 -SkipMenu
 ```
+
+**Menu System Features:**
+- **Guided Selection**: Clear descriptions of each monitoring mode with duration estimates
+- **Component Details**: Shows which scripts will run and their KPI categories
+- **Export Configuration**: Interactive prompt for CSV report generation
+- **Individual Selection**: Custom component picker with multi-select capability
+- **Parameter Tips**: Displays command-line alternatives for automation
 
 ### 2. Check-DLPEventLogs.ps1
 **Advanced event log analyzer** with intelligent classification of DLP-related vs. system maintenance errors.
@@ -276,7 +420,46 @@ DLP-Performance-Monitoring/
 
 ## 🚀 Quick Start
 
-### 1. Initial Setup
+### 1. Menu-Driven Operation (Recommended)
+```powershell
+# Interactive menu with guided configuration
+.\Master-DLPMonitoring.ps1
+```
+**What happens:**
+1. **Export prompt**: Choose whether to generate detailed CSV reports
+2. **Monitoring menu**: Select from 6 predefined monitoring configurations
+3. **Component details**: See which scripts will run and estimated duration
+4. **Execution**: Automated coordination of all selected components
+5. **Results**: Unified KPI assessment with executive summaries
+
+### 2. Direct Parameter Usage (Advanced Users)
+```powershell
+# Essential monitoring with reports (most common)
+.\Master-DLPMonitoring.ps1 -MonitoringMode Essential -ExportReports
+
+# Complete assessment with authentication
+.\Master-DLPMonitoring.ps1 -MonitoringMode Full -Duration 15 -ExportReports -UserPrincipalName admin@yourdomain.com
+
+# Performance troubleshooting focus
+.\Master-DLPMonitoring.ps1 -MonitoringMode Performance -Duration 20 -QuickTest
+
+# Automation-friendly execution
+.\Master-DLPMonitoring.ps1 -MonitoringMode Essential -SkipMenu -ExportReports
+```
+
+### 3. Individual Component Testing
+```powershell
+# Menu-driven component selection
+.\Master-DLPMonitoring.ps1
+# Select option [5] Individual Component Selection
+# Choose specific components: "1,3" for Performance + File Latency
+
+# Direct component execution (classic method)
+.\Check-DLPEventLogs.ps1 -ExportReports -Days 7
+.\Check-DLPEndpointPerformance.ps1 -Duration 10 -QuickTest
+```
+
+### 4. First-Time Setup and Validation
 ```powershell
 # Clone or download the repository
 git clone https://github.com/yourusername/dlp-performance-monitoring.git
@@ -432,6 +615,74 @@ mklink /J C:\TEMP_DLP "C:\Users\User\OneDrive\Long\Path"
 
 ## 📝 Advanced Configuration
 
+### Master Script Parameters (Enhanced)
+The Master script supports comprehensive parameter control for both menu and direct execution:
+
+| Parameter | Type | Description | Example |
+|-----------|------|-------------|---------|
+| `-MonitoringMode` | String | Monitoring configuration (Full, Essential, Performance, Policy, Custom) | `-MonitoringMode Essential` |
+| `-Duration` | Integer | Performance monitoring duration in minutes | `-Duration 15` |
+| `-ExportReports` | Switch | Enable comprehensive CSV report export | `-ExportReports` |
+| `-QuickTest` | Switch | Run accelerated tests for rapid assessment | `-QuickTest` |
+| `-UserPrincipalName` | String | UPN for policy activity authentication | `-UserPrincipalName admin@domain.com` |
+| `-ScriptDirectory` | String | Directory containing monitoring scripts | `-ScriptDirectory "C:\Scripts"` |
+| `-IncludeUserSurvey` | Switch | Include user experience survey collection | `-IncludeUserSurvey` |
+| `-Interactive` | Switch | Force confirmation prompts even with parameters | `-Interactive` |
+| `-SkipMenu` | Switch | Skip interactive menu for automation scenarios | `-SkipMenu` |
+
+### Menu System Customization
+Modify monitoring profiles by editing the Master script's configuration section:
+
+```powershell
+# Define custom monitoring profiles
+$monitoringProfiles = @(
+    @{
+        Index = 1
+        Name = "CustomProfile"
+        DisplayName = "Custom Security Focus"
+        Description = "Tailored monitoring for security scenarios"
+        Components = @("PolicyActivity", "EventLogs", "UserExperience")
+        EstimatedDuration = "10-15 minutes"
+        Recommendation = "Use for security incident investigation"
+    }
+)
+
+# Customize component descriptions
+$MonitoringComponents = @{
+    "CustomComponent" = @{
+        ScriptName = "Check-CustomDLP.ps1"
+        Description = "Custom DLP Component Analysis"
+        KPICategories = @("Custom KPI", "Security Metrics")
+        Essential = $true
+        RequiresAuth = $false
+    }
+}
+```
+
+### Automation Integration
+The menu system integrates seamlessly with automation while maintaining backward compatibility:
+
+```powershell
+# Task Scheduler integration
+$Action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-File C:\DLP-Monitoring\Master-DLPMonitoring.ps1 -MonitoringMode Essential -SkipMenu -ExportReports"
+$Trigger = New-ScheduledTaskTrigger -Daily -At "06:00"
+Register-ScheduledTask -TaskName "DLP-Menu-Daily-Monitoring" -Action $Action -Trigger $Trigger
+
+# SIEM integration with parameter bypass
+.\Master-DLPMonitoring.ps1 -MonitoringMode Performance -Duration 5 -SkipMenu -QuickTest | Out-File -FilePath "C:\Logs\DLP-Health.log"
+
+# PowerShell Desired State Configuration
+Configuration DLPMonitoring {
+    Script RunDLPMonitoring {
+        SetScript = {
+            & "C:\Scripts\Master-DLPMonitoring.ps1" -MonitoringMode Essential -SkipMenu -ExportReports
+        }
+        TestScript = { $false }  # Always run
+        GetScript = { @{} }
+    }
+}
+```
+
 ### Custom KPI Thresholds
 Modify KPI thresholds in each script's configuration section:
 ```powershell
@@ -440,6 +691,29 @@ $EventLogKPIs = @{
     WarningThreshold = 10.0            # < 10% warning events per day
     PolicySyncFailures = 2.0           # < 2% policy sync failures
     AgentHealthThreshold = 95.0        # > 95% agent availability
+}
+```
+
+### Menu Display Customization
+Customize menu appearance and behavior:
+```powershell
+# Color scheme configuration
+$Colors = @{
+    Header = 'Cyan'
+    Success = 'Green'
+    Warning = 'Yellow'
+    Error = 'Red'
+    Info = 'White'
+    Progress = 'Magenta'
+}
+
+# Menu timing and behavior
+$MenuSettings = @{
+    ShowComponentDetails = $true        # Display component scripts and KPIs
+    ShowDurationEstimates = $true       # Display estimated execution times
+    ShowRecommendations = $true         # Display usage recommendations
+    AutoPromptExports = $true           # Automatically ask about report export
+    ValidateComponents = $true          # Check script availability before execution
 }
 ```
 
@@ -459,7 +733,7 @@ Export CSV data can be integrated with:
 - **Power BI**: Create executive dashboards from exported data
 - **Azure Monitor**: Send metrics to Azure for cloud-based monitoring
 - **System Center**: Integration with SCOM for enterprise monitoring
----
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these guidelines:
@@ -470,67 +744,68 @@ Contributions are welcome! Please follow these guidelines:
 4. **Test thoroughly** in enterprise environments
 5. **Update documentation** for any new features or changes
 6. **Submit pull requests** with detailed descriptions
----
+
 ### Development Standards
 - Use approved verb-noun PowerShell naming conventions
 - Include comprehensive error handling and validation
 - Maintain backward compatibility where possible
 - Follow the existing code style and formatting
 - Include unit tests for new functionality
----
-## 📄 **License:** Apache 2.0 (see LICENSE)  
-**Additional restriction:** Commons Clause (see COMMONS-CLAUSE.txt)
 
-**SPDX headers**
-- Each source file includes:  
-  `SPDX-License-Identifier: Apache-2.0 WITH Commons-Clause`
+## 📄 License
 
----
+This project is licensed under the Apache 2.0 License with Commons Clause - see the [LICENSE](LICENSE) file for details.
 
-### FAQ: MSP and Consulting Use
+### Key License Points:
+- **Commercial Use**: Permitted with restrictions
+- **Modification**: Allowed with attribution
+- **Distribution**: Permitted with license inclusion
+- **Private Use**: Fully permitted
+- **Selling Prohibited**: Commons Clause restriction
 
-**Q: Can an MSP or consultant use this tool in a paid engagement?**  
-**A:** It depends on how the tool is used:  
-- **Allowed:** If the tool is used internally by the end customer (e.g., installed in their tenant) and the consultant is simply assisting, this is generally acceptable.  
-- **Not allowed without a commercial licence:** If the MSP or consultant provides a managed service where the tool runs in their own environment (e.g., their tenant or infrastructure) or if the value of the service substantially derives from the tool’s functionality, this falls under the definition of “Sell” in the Commons Clause and requires a commercial licence.
+## 🙋 Support
 
-**Q: Why is this restricted?**  
-The Commons Clause removes the right to “Sell,” which includes providing a service for a fee where the value derives from the software. This ensures fair use and prevents competitors from monetising the tool without contributing back.
+### Documentation
+- **Script Help**: Use `Get-Help .\ScriptName.ps1 -Full` for detailed documentation
+- **Parameter Guidance**: All scripts include comprehensive parameter help
+- **Example Usage**: Multiple examples provided for each script
 
-**Q: How do I get a commercial licence?**  
-Contact Global Micro Solutions (Pty) Ltd at:  
-📧 licensing@globalmicro.co.za
+### Community Support
+- **Issues**: Report bugs and request features via GitHub Issues
+- **Discussions**: Join community discussions for best practices
+- **Wiki**: Additional documentation and use cases
 
----
-
-## ⚠️ Warranty Disclaimer
-
-Distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. Please review the Apache-2.0 WITH Commons-Clause License for the specific language governing permissions and limitations under the License.
-
----
+### Enterprise Support
+For enterprise deployments and custom requirements:
+- **Professional Services**: Available for implementation and customization
+- **Training**: PowerShell and DLP monitoring best practices
+- **Consulting**: Architecture guidance and optimization
 
 ## 🏷️ Version History
 
-### Version 2.1 (Current)
-- Enhanced error classification with intelligent DLP vs. system separation
-- Comprehensive error type analysis with business impact assessment
-- Priority action plans with automated recommendations
-- Improved CSV exports with detailed analysis data
-- Master suite orchestration with consolidated reporting
+### Version 2.1 (Current) - Interactive Menu System Release
+- **🎯 Interactive Menu System**: Complete menu-driven operation with guided configuration
+- **🔧 Individual Component Selection**: Choose specific monitoring scripts with multi-select capability
+- **📊 Enhanced Export Integration**: Automated CSV export prompting with user confirmation
+- **⚙️ Advanced Parameter Handling**: Skip menu options for automation while maintaining menu functionality
+- **🎨 User Experience Improvements**: Color-coded menus, duration estimates, and component descriptions
+- **🔄 Flexible Execution Modes**: Menu-driven, parameter-based, and hybrid operation modes
+- **📈 Enhanced Reporting**: Master script generates 3 consolidated CSV reports plus individual component exports
+- **🛡️ Robust Error Handling**: Graceful fallbacks and improved validation for menu selections
 
-### Version 2.0
-- Added comprehensive DLP error type analysis
-- Implemented smart classification system
-- Enhanced KPI calculations and reporting
-- Added business impact assessments
-- Improved user experience monitoring
+### Version 2.0 - Advanced Analysis Release
+- **🧠 Enhanced Error Classification**: Intelligent DLP vs. system error separation
+- **📋 Comprehensive Error Type Analysis**: Detailed business impact assessments
+- **🎯 Priority Action Plans**: Automated recommendations with severity classification
+- **📊 Improved CSV Exports**: Detailed analysis data with trend information
+- **🏢 Master Suite Orchestration**: Consolidated reporting across all components
 
-### Version 1.0
-- Initial release with core monitoring capabilities
-- Basic event log analysis
-- Performance monitoring foundation
-- File latency testing implementation
-- Policy activity monitoring
+### Version 1.0 - Foundation Release
+- **📊 Initial Release**: Core monitoring capabilities established
+- **📝 Basic Event Log Analysis**: Fundamental DLP health monitoring
+- **⚡ Performance Monitoring Foundation**: System resource impact measurement
+- **📁 File Latency Testing**: File operation delay analysis
+- **🔍 Policy Activity Monitoring**: Initial DLP policy effectiveness tracking
 
 ## 🎖️ Acknowledgments
 
