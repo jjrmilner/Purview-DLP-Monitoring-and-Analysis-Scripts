@@ -1,2 +1,0 @@
-﻿"Component_Name","Script_Name","Description","Status","Duration_Seconds","Exit_Code","Error_Message","KPI_Categories","Essential_Component","Requires_Authentication"
-"EventLogs","Check-DLPEventLogs.ps1","Event Log Analysis","Success","12.7","N/A","N/A","Error Rate; Warning Rate; Agent Health","True","False"
