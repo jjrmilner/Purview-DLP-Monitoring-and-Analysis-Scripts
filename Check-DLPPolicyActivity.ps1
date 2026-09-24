@@ -568,6 +568,33 @@ try {
             Write-Host "  [!] Audit log access not available with existing connection: $($_.Exception.Message)" -ForegroundColor Yellow
         }
     }
+
+    # Exchange Online provides audit cmdlets, but DLP compliance cmdlets require an IPPS session.
+    $existingComplianceConnection = @()
+    if (Get-Command Get-ConnectionInformation -ErrorAction SilentlyContinue) {
+        $existingComplianceConnection = @(Get-ConnectionInformation -ErrorAction SilentlyContinue | Where-Object {
+            $_.ConnectionUri -like "*compliance.protection.outlook.com*"
+        })
+    }
+
+    if ($existingComplianceConnection.Count -eq 0) {
+        $existingComplianceConnection = @(Get-PSSession | Where-Object {
+            $_.State -eq "Opened" -and $_.ComputerName -like "*compliance.protection.outlook.com*"
+        })
+    }
+
+    if ($existingComplianceConnection.Count -eq 0) {
+        try {
+            Write-Host "  Connecting to Security & Compliance for DLP policy access..." -ForegroundColor Gray
+            Connect-IPPSSession -UserPrincipalName $UserPrincipalName -ErrorAction Stop
+            Write-Host "  [+] Security & Compliance connected successfully!" -ForegroundColor Green
+        } catch {
+            Write-Host "  [!] Security & Compliance connection failed: $($_.Exception.Message)" -ForegroundColor Red
+            throw "Unable to establish the Security & Compliance connection required for DLP policy operations"
+        }
+    } else {
+        Write-Host "  Using existing Security & Compliance connection" -ForegroundColor Green
+    }
     
     # Comprehensive connection summary
     Write-Host "`nConnection Summary:" -ForegroundColor Cyan
